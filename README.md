@@ -38,7 +38,7 @@ A comprehensive YouTube clone with pixel-perfect UI and advanced interaction fea
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/DeveloperSubhadeep1/ytcln.git
 cd youtube-clone
 ```
 
