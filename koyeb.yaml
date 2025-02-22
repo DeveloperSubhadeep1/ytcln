@@ -1,0 +1,23 @@
+name: youtube-clone
+services:
+  - name: web
+    type: web
+    instance_type: nano
+    git:
+      repository: <your-repository-url>
+      branch: main
+    build:
+      builder: nodejs
+      commands:
+        - npm install
+        - npm run build
+    run:
+      command: npm start
+    ports:
+      - port: 5000
+        http: true
+    env:
+      - name: NODE_ENV
+        value: production
+      - name: DATABASE_URL
+        value: $DATABASE_URL
