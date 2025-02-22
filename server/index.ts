@@ -1,4 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
+import process from "process";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
@@ -58,12 +59,14 @@ app.use((req, res, next) => {
 
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client
-  const port = 5000;
+  const port = process.env.PORT || 10000;  // Render-এ চললে PORT সেট করবে, নাহলে 5000
+
   server.listen({
     port,
     host: "0.0.0.0",
     reusePort: true,
   }, () => {
-    log(`serving on port ${port}`);
+    console.log(`Server running on port ${port}`);
   });
+
 })();
